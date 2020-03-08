@@ -17,7 +17,7 @@ class Usuario extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_tipo_usuario');
             $table->string('nombre');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('pass');
         });
 

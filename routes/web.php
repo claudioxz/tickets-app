@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', function(){
+        dd(Auth::user());
+        return view('index');
+    })->name('home');
+
+
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/admin', function (){
+            dd('holi admin');
+        })->name('admin');
+    });
 });
+
+Route::post('/login', 'Auth\AuthController@login');
+Route::post('/register', 'Auth\AuthController@register');
+Route::get('/login-register', 'Auth\AuthController@loginForm')->name('login-register');
+Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
+
