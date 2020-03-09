@@ -23,7 +23,7 @@ class AuthController extends Controller
             if($user->isAdmin()){
                 return redirect()->route('admin');
             }
-            return redirect()->intended('home');
+            return redirect()->route('home');
         } 
         return redirect()
                 ->route('login-register')

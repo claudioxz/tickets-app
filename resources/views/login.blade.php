@@ -19,17 +19,18 @@
     </div>
     <div class="container">
         @if(session()->get( 'registerComplete' ) != null)
-        @component('components.notification', [
-            'type' => 'is-success',
-            'message' => session()->get( 'registerComplete' )
-        ])
+            @component('components.notification', [
+                'type' => 'is-success',
+                'message' => session()->get( 'registerComplete' )
+            ])
+            @endcomponent
         @endif
-
         @if (session()->get('errorLogin') != null)
-        @component('components.anotification', [
-            'type' => 'is-danger',
-            'message' => session()->get( 'errorLogin' )
-        ])
+            @component('components.notification', [
+                'type' => 'is-danger',
+                'message' => session()->get( 'errorLogin' )
+            ])
+            @endcomponent
         @endif
         <div class="columns justify-center">
             <div class="column is-two-fifths">

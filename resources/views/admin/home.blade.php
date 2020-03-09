@@ -3,10 +3,11 @@
 
 
 @section('content')
-@include('layouts.admin-nav')
+@include('layouts.nav')
 
 <section class="section">
     <div class="container">
+        <h1 class="title">Todos los tickets</h1>
         @if(session()->get( 'ticketCreated' ) != null)
             @component('components.notification', [
                 'type' => 'is-success',

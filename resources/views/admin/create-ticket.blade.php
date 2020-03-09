@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 @section('title', 'Crear nuevo Ticket')
-@include('layouts.admin-nav')
+@include('layouts.nav')
 
 
 <section class="section">

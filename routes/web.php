@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', function(){
-        dd(Auth::user());
-        return view('index');
-    })->name('home');
+    Route::get('/', 'UserController@index')->name('home');
+    Route::get('/mark-ticket/{id}', 'UserController@markTicket')->name('mark-ticket');
 
 
     Route::group(['middleware' => 'admin'], function () {
