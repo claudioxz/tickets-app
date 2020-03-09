@@ -22,9 +22,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::group(['middleware' => 'admin'], function () {
-        Route::get('/admin', function (){
-            dd('holi admin');
-        })->name('admin');
+        Route::get('/admin', 'AdminController@index')->name('admin');
+        Route::get('/create-ticket-form', 'AdminController@createTicketForm')->name('create-ticket-form');
+        Route::post('/create-ticket', 'AdminController@createTicket')->name('create-ticket');
+        Route::get('/delete-ticket/{id}', 'AdminController@deleteTicket')->name('delete-ticket');
+        Route::get('/edit-ticket-form/{id}', 'AdminController@editTicketForm')->name('edit-ticket-form');
+        Route::post('/edit-ticket/{id}', 'AdminController@editTicket')->name('edit-ticket');
     });
 });
 

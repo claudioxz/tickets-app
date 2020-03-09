@@ -16,7 +16,7 @@ class Ticket extends Migration
         Schema::create('ticket', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_usuario');
-            $table->boolean('ticket_pedido');
+            $table->boolean('ticket_pedido')->default(0);
         });
 
         Schema::table('ticket', function (Blueprint $table){

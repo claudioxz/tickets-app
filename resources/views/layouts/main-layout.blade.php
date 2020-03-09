@@ -23,5 +23,6 @@
 <body>
     @yield('content')
 </body>
+<script src="js/main.js"></script>
 @yield('script')
 </html>

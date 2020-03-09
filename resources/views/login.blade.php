@@ -19,21 +19,17 @@
     </div>
     <div class="container">
         @if(session()->get( 'registerComplete' ) != null)
-        <div class="columns justify-center">
-            <div class="column is-two-fifths notification is-success">
-                <button class="delete"></button>
-                {{session()->get( 'registerComplete' )}}
-            </div>
-        </div>
+        @component('components.notification', [
+            'type' => 'is-success',
+            'message' => session()->get( 'registerComplete' )
+        ])
         @endif
 
         @if (session()->get('errorLogin') != null)
-        <div class="columns justify-center">
-            <div class="column is-two-fifths notification is-danger">
-                <button class="delete"></button>
-                {{session()->get( 'errorLogin' )}}
-            </div>
-        </div>
+        @component('components.anotification', [
+            'type' => 'is-danger',
+            'message' => session()->get( 'errorLogin' )
+        ])
         @endif
         <div class="columns justify-center">
             <div class="column is-two-fifths">
@@ -78,15 +74,6 @@
             document.getElementById(contentId).style.display = 'block';
             document.getElementById(oldContentId).style.display = 'none';
         }
-
-
-        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-            $notification = $delete.parentNode;
-
-            $delete.addEventListener('click', () => {
-                $notification.parentNode.removeChild($notification);
-            });
-        });
     })
 </script>
 @endsection
